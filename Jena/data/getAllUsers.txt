@@ -1,0 +1,16 @@
+PREFIX ns: <http://www.semanticweb.org/health-tracker#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?individual ?name ?age ?email ?height ?weight ?heartRate ?bloodPressure ?cholesterol ?diabetesStatus
+WHERE {
+  ?individual rdf:type ns:User .
+  ?individual ns:name ?name .
+  ?individual ns:age ?age .
+  ?individual ns:email ?email .
+  ?individual ns:height ?height .
+  ?individual ns:weight ?weight .
+  ?individual ns:heartRate ?heartRate .
+  ?individual ns:bloodPressure ?bloodPressure .
+  ?individual ns:cholesterol ?cholesterol .
+  ?individual ns:diabetesStatus ?diabetesStatus .
+}

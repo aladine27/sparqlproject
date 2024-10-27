@@ -1,0 +1,9 @@
+PREFIX ns: <http://www.semanticweb.org/health-tracker#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?individual ?bloodPressure
+WHERE {
+  ?individual rdf:type ns:User .
+  ?individual ns:bloodPressure ?bloodPressure .
+  FILTER regex(?bloodPressure, "^1[3-9][0-9]/8[5-9]$")
+}
