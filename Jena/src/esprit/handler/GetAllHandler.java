@@ -21,6 +21,15 @@ public class GetAllHandler implements HttpHandler {
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
+        exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "http://localhost:4200");
+        exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+        if ("OPTIONS".equalsIgnoreCase(exchange.getRequestMethod())) {
+            exchange.sendResponseHeaders(204, -1); // Return 204 status for OPTIONS preflight requests
+            return;
+        }
+
         if ("GET".equals(exchange.getRequestMethod())) {
             String results = getAllEntitiesService.getAllEntities(filePath);
             System.out.println(results);

@@ -13,7 +13,7 @@ import com.sun.net.httpserver.HttpServer;
 import static esprit.tools.JenaEngine.uploadToFuseki;
 
 public class Main {
-    private static final String FUSEKI_URL = "http://localhost:3030/sante2/data"; // Fuseki endpoint URL
+    private static final String FUSEKI_URL = "http://localhost:3030/sante/data"; // Fuseki endpoint URL
 
     public static void main(String[] args) {
         try {
@@ -40,11 +40,11 @@ public class Main {
                 server.createContext("/getExpertsAffectedByAdmin", new GetAllHandler(inferedModel, userFieldNames, "data/experts-added-by-admin.txt"));
                 server.createContext("/getGoalsAffectedByExpert", new GetAllHandler(inferedModel, goalFieldNames, "data/goals-affected-by-expert.txt"));
                 server.createContext("/getUserHealthActivity", new GetAllHandler(inferedModel, healthActivityFieldNames, "data/users-activities.txt"));
+                server.createContext("/getPlan", new GetAllHandler(inferedModel, planFieldNames, "data/plans.txt"));
 
                 /*   */
                 server.createContext("/getExercisePlan", new GetAllHandler(inferedModel, exercisePlanFieldNames, "data/exerciseplan.txt"));
                 server.createContext("/getNutritionPlan", new GetAllHandler(inferedModel, nutritionPlanFieldNames, "data/nutritionplan.txt"));
-                server.createContext("/getPlan", new GetAllHandler(inferedModel, planFieldNames, "data/plan.txt"));
                 server.createContext("/getGoal", new GetAllHandler(inferedModel, goalFieldNames, "data/goal.txt"));
                 server.createContext("/getPromotionCampaign", new GetAllHandler(inferedModel, promotionCampaignFieldNames, "data/promotioncampaign.txt"));
                 server.createContext("/getHealthRecord", new GetAllHandler(inferedModel, healthRecordFieldNames, "data/healthrecord.txt"));
