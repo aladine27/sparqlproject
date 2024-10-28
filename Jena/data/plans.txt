@@ -1,0 +1,11 @@
+PREFIX ns: <http://www.semanticweb.org/health-tracker#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT  ?startDate ?endDate ?dietPlanType ?intensity
+WHERE {
+    ?plan rdf:type ns:Plan .
+    ?plan ns:dietPlanType ?dietPlanType .
+    ?plan ns:intensity ?intensity .
+    ?plan ns:startDate ?startDate .
+    ?plan ns:endDate ?endDate
+}

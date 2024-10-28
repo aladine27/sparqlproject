@@ -1,0 +1,11 @@
+PREFIX ns: <http://www.semanticweb.org/health-tracker#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?goal ?target ?progress ?startDate ?endDate
+WHERE {
+  ns:Expert3 ns:affectGoal ?goal .                   # Replace with the specific expert's URI
+  ?goal ns:target ?target .                           # Get the target of the goal
+  ?goal ns:progress ?progress .                       # Get the progress of the goal
+  ?goal ns:startDate ?startDate .                     # Get the start date of the goal
+  ?goal ns:endDate ?endDate .                         # Get the end date of the goal
+}

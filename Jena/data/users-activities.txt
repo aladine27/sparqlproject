@@ -1,0 +1,13 @@
+PREFIX ns: <http://www.semanticweb.org/health-tracker#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?user ?activityType ?stepsCount ?caloriesBurned ?duration
+WHERE {
+  ?user rdf:type ns:User .                            # Ensure you're looking for instances of User
+  ?user ns:addHealthActivity ?activity .              # Link the user to their health activities
+  ?activity rdf:type ns:HealthActivity .              # Ensure the activity is of type HealthActivity
+  ?activity ns:type ?activityType .                   # Get the type of health activity
+  ?activity ns:stepsCount ?stepsCount .               # Get the steps count
+  ?activity ns:caloriesBurned ?caloriesBurned .      # Get the calories burned
+  ?activity ns:duration ?duration .                   # Get the duration of the activity
+}

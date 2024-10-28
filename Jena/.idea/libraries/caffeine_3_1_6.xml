@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="caffeine-3.1.6">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../apache-jena-5.2.0/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/../apache-jena-5.2.0/lib" recursive="false" />
+  </library>
+</component>

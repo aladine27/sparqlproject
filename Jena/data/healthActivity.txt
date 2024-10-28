@@ -1,0 +1,11 @@
+PREFIX ns: <http://www.semanticweb.org/health-tracker#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?healthActivity ?type ?duration ?date ?stepsCount ?caloriesBurned
+WHERE {
+    ?healthActivity a ns:HealthActivity .
+    ?healthActivity ns:type ?type .
+    ?healthActivity ns:duration ?duration .
+    ?healthActivity ns:stepsCount ?stepsCount .
+    ?healthActivity ns:caloriesBurned ?caloriesBurned
+}

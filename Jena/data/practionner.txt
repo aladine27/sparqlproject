@@ -1,0 +1,17 @@
+PREFIX ns: <http://www.semanticweb.org/health-tracker#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?individual
+       ?name
+       ?email
+       ?phone
+       ?age
+       ?role
+WHERE {
+  ?individual rdf:type ns:Practitioner .
+  ?individual ns:name ?name .
+  ?individual ns:email ?email .
+  ?individual ns:phone ?phone .
+  ?individual ns:age ?age .
+  ?individual ns:role ?role .
+}
