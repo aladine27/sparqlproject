@@ -1,8 +1,17 @@
 package esprit.service;
 
 import esprit.model.User;
+import esprit.tools.JenaEngine;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.*;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,27 +22,14 @@ public class GetAllUsers {
         this.inferredModel = inferredModel;
     }
 
-    public String getAllUsers() {
-        String queryString = "PREFIX ns: <http://www.semanticweb.org/health-tracker#>\n" +
-                "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-                "SELECT ?individual ?name ?age ?email ?height ?weight ?heartRate ?bloodPressure ?cholesterol ?diabetesStatus\n" +
-                "WHERE {\n" +
-                "  ?individual rdf:type ns:User .\n" +
-                "  ?individual ns:name ?name .\n" +
-                "  ?individual ns:age ?age .\n" +
-                "  ?individual ns:email ?email .\n" +
-                "  ?individual ns:height ?height .\n" +
-                "  ?individual ns:weight ?weight .\n" +
-                "  ?individual ns:heartRate ?heartRate .\n" +
-                "  ?individual ns:bloodPressure ?bloodPressure .\n" +
-                "  ?individual ns:cholesterol ?cholesterol .\n" +
-                "  ?individual ns:diabetesStatus ?diabetesStatus .\n" +
-                "}";
+    public String getAllUsers() throws IOException {
+        String queryString = readQueryFromFile("data/users/getall.txt");
 
         List<User> users = new ArrayList<>();
         Query query = QueryFactory.create(queryString);
         try (QueryExecution qexec = QueryExecutionFactory.create(query, inferredModel)) {
             ResultSet results = qexec.execSelect();
+            System.out.println(results);
             while (results.hasNext()) {
                 QuerySolution solution = results.nextSolution();
                 String individual = solution.getResource("individual").getURI();
@@ -55,6 +51,19 @@ public class GetAllUsers {
         }
 
         return formatUsersToJson(users);
+    }
+
+    private String readQueryFromFile(String filePath) {
+        StringBuilder queryBuilder = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                queryBuilder.append(line).append("\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the exception as needed
+        }
+        return queryBuilder.toString();
     }
 
     private String formatUsersToJson(List<User> users) {

@@ -1,0 +1,9 @@
+PREFIX ns: <http://www.semanticweb.org/health-tracker#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?user ?name ?email
+WHERE {
+  ns:Admin2 ns:affectExpert ?user .                       # Replace with the specific admin's URI
+  ?user ns:name ?name .                               # Get the name of the user
+  ?user ns:email ?email .                             # Get the email of the user
+}

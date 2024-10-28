@@ -33,7 +33,7 @@
     <!-- http://www.semanticweb.org/health-tracker#addHealthActivity -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/health-tracker#addHealthActivity">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#Expert"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#User"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/health-tracker#HealthActivity"/>
     </owl:ObjectProperty>
     
@@ -120,14 +120,6 @@
     
 
 
-    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
-
-    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/health-tracker#achievesGoal"/>
-    </rdf:Description>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -154,7 +146,13 @@
         <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#User"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     </owl:DatatypeProperty>
-    
+
+        <!-- http://www.semanticweb.org/health-tracker#role -->
+
+        <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#role">
+            <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#User"/>
+            <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        </owl:DatatypeProperty>
 
 
     <!-- http://www.semanticweb.org/health-tracker#bloodPressure -->
@@ -175,11 +173,36 @@
     
 
 
+    <!-- http://www.semanticweb.org/health-tracker#budget -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#budget">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#PromotionCampaign"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/health-tracker#caloriesBurned -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#caloriesBurned">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#HealthActivity"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/health-tracker#caloriesPerDay -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#caloriesPerDay">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#HealthActivity"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#NutritionPlan"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/health-tracker#dateOfBirth -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#dateOfBirth">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#Person"/>
     </owl:DatatypeProperty>
     
 
@@ -193,6 +216,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/health-tracker#duration -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#duration">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#HealthActivity"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/health-tracker#email -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#email">
@@ -202,11 +233,37 @@
     
 
 
+    <!-- http://www.semanticweb.org/health-tracker#endDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#endDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#Goal"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#Plan"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#PromotionCampaign"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/health-tracker#equipmentRequired -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#equipmentRequired">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#ExercisePlan"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/health-tracker#exerciseDuration -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#exerciseDuration">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#HealthActivity"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/health-tracker#gender -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#gender">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#Person"/>
     </owl:DatatypeProperty>
     
 
@@ -225,6 +282,23 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#height">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#User"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/health-tracker#intensity -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#intensity">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#Plan"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/health-tracker#muscleGroupsTargeted -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#muscleGroupsTargeted">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#ExercisePlan"/>
     </owl:DatatypeProperty>
     
 
@@ -256,6 +330,25 @@
     
 
 
+    <!-- http://www.semanticweb.org/health-tracker#progress -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#progress">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#Goal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/health-tracker#startDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#startDate">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#Goal"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#Plan"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#PromotionCampaign"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/health-tracker#stepsCount -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#stepsCount">
@@ -265,11 +358,45 @@
     
 
 
+    <!-- http://www.semanticweb.org/health-tracker#target -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#target">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#Goal"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/health-tracker#targetWeight -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#targetWeight">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#User"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/health-tracker#type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#type">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#Goal"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#HealthActivity"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/health-tracker#unit -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#unit">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#HealthRecord"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/health-tracker#value -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/health-tracker#value">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/health-tracker#HealthRecord"/>
     </owl:DatatypeProperty>
     
 
@@ -297,27 +424,6 @@
     <!-- http://www.semanticweb.org/health-tracker#Administrator -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/health-tracker#Administrator">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/health-tracker#addPractitioner"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/health-tracker#Practitioner"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/health-tracker#addUser"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/health-tracker#User"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/health-tracker#affectExpert"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/health-tracker#Expert"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/health-tracker#User"/>
     </owl:Class>
     
@@ -382,20 +488,6 @@
     <!-- http://www.semanticweb.org/health-tracker#Expert -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/health-tracker#Expert">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/health-tracker#addPlan"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/health-tracker#Plan"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/health-tracker#affectGoal"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/health-tracker#Goal"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/health-tracker#User"/>
     </owl:Class>
     
@@ -419,15 +511,7 @@
 
     <!-- http://www.semanticweb.org/health-tracker#Goal -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/health-tracker#Goal">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/health-tracker#achievesGoal"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/health-tracker#Practitioner"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-    </owl:Class>
+    <owl:Class rdf:about="http://www.semanticweb.org/health-tracker#Goal"/>
     
 
 
@@ -514,41 +598,6 @@
     <!-- http://www.semanticweb.org/health-tracker#Practitioner -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/health-tracker#Practitioner">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/health-tracker#achievesGoal"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/health-tracker#Goal"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/health-tracker#addPromotionCampaign"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/health-tracker#PromotionCampaign"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/health-tracker#affectPlan"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/health-tracker#Plan"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/health-tracker#addHealthRecord"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/health-tracker#HealthRecord"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/health-tracker#affectHealthActivity"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/health-tracker#HealthActivity"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/health-tracker#User"/>
     </owl:Class>
     
@@ -587,13 +636,6 @@
     <!-- http://www.semanticweb.org/health-tracker#User -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/health-tracker#User">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/health-tracker#addHealthActivity"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/health-tracker#HealthActivity"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/health-tracker#Person"/>
     </owl:Class>
     
@@ -623,7 +665,111 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
+
+
+    <!-- http://www.semanticweb.org/health-tracker#BloodPressure -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#BloodPressure">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#HealthRecord"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/health-tracker#Cardio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#Cardio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Goal"/>
+        <progress rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">en cours</progress>
+        <target rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">weight loss</target>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/health-tracker#GainMuscle -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#GainMuscle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Goal"/>
+        <progress rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">in progress</progress>
+        <target rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">muscle gain target</target>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/health-tracker#Plan01 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#Plan01">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#ExercisePlan"/>
+        <duration rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"></duration>
+        <intensity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">moyen</intensity>
+        <startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1/1/24</startDate>
+        <startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">12/1/24</startDate>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/health-tracker#Plan02 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#Plan02">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#ExercisePlan"/>
+        <endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">30/2/24</endDate>
+        <intensity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"></intensity>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/health-tracker#Plan03 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#Plan03">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Plan"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/health-tracker#Plan04 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#Plan04">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Plan"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/health-tracker#PromotionCampaign -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#PromotionCampaign"/>
+
+
+
+    <!-- http://www.semanticweb.org/health-tracker#Running -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#Running">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#HealthActivity"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/health-tracker#StressReductionCampaign -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#StressReductionCampaign">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#PromotionCampaign"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/health-tracker#SummerFitnessChallenge -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#SummerFitnessChallenge">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#PromotionCampaign"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/health-tracker#Yoga -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#Yoga">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#HealthActivity"/>
+    </owl:NamedIndividual>
+
 
 
     <!-- http://www.semanticweb.org/health-tracker#admin1 -->
@@ -633,7 +779,42 @@
         <email>admin@example.com</email>
         <name>Admin User</name>
     </owl:NamedIndividual>
-    
+
+
+
+    <!-- http://www.semanticweb.org/health-tracker#ali -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#ali">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Person"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/health-tracker#exp.Amal -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#exp.Amal">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Expert"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32</age>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/health-tracker#exp.Amin -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#exp.Amin">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Expert"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">36</age>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/health-tracker#exp.marwan -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#exp.marwan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Expert"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">27</age>
+    </owl:NamedIndividual>
+
 
 
     <!-- http://www.semanticweb.org/health-tracker#fitnessChallenge1 -->
@@ -643,7 +824,13 @@
         <achievesGoal rdf:resource="http://www.semanticweb.org/health-tracker#fitnessChallenge1"/>
         <name>30-Day Fitness Challenge</name>
     </owl:NamedIndividual>
-    
+
+
+
+    <!-- http://www.semanticweb.org/health-tracker#health_activity1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#health_activity1"/>
+
 
 
     <!-- http://www.semanticweb.org/health-tracker#janeSmith -->
@@ -653,21 +840,181 @@
         <email>janesmith@example.com</email>
         <name>Jane Smith</name>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/health-tracker#johnDoe -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#johnDoe">
         <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#User"/>
+        <name>John Doe</name>
         <age>30</age>
         <email>johndoe@example.com</email>
-        <height>180</height>
-        <name>John Doe</name>
-        <phone>1234567890</phone>
-        <weight>75</weight>
+        <phone>123-456-7890</phone>
+        <password>securePassword123</password>
+        <weight>180</weight>
+        <targetWeight>160</targetWeight>
+        <height>70</height> <!-- Height in inches -->
+        <heartRate>75</heartRate>
+        <activityLevel>moderate</activityLevel>
+        <role>Expert</role>
+        <diabetesStatus>none</diabetesStatus>
+         <addHealthActivity rdf:resource="http://www.semanticweb.org/health-tracker#HealthActivity1"/>
+            <addHealthActivity rdf:resource="http://www.semanticweb.org/health-tracker#HealthActivity2"/>
     </owl:NamedIndividual>
-    
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#HealthActivity1">
+    <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#HealthActivity"/>
+    <type>Running</type>
+    <stepsCount>5000</stepsCount>
+    <caloriesBurned>300</caloriesBurned>
+    <duration>30</duration> <!-- Duration in minutes -->
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#HealthActivity2">
+    <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#HealthActivity"/>
+    <type>Walking</type>
+    <stepsCount>3000</stepsCount>
+    <caloriesBurned>150</caloriesBurned>
+    <duration>45</duration> <!-- Duration in minutes -->
+</owl:NamedIndividual>
+ <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#Admin2">
+     <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Administrator"/> <!-- Changed to Administrator -->
+     <name>Admin</name>
+     <age>30</age>
+     <email>admin@gmail.com</email>
+     <phone>123-456-7890</phone>
+     <password>securePassword123</password>
+     <weight>180</weight>
+     <targetWeight>160</targetWeight>
+     <height>70</height> <!-- Height in inches -->
+     <heartRate>75</heartRate>
+     <activityLevel>moderate</activityLevel>
+     <role>Administrator</role>
+     <diabetesStatus>none</diabetesStatus>
+         <addUser rdf:resource="http://www.semanticweb.org/health-tracker#johnDoe"/>
+         <affectExpert rdf:resource="http://www.semanticweb.org/health-tracker#Expert3"/>
+
+ </owl:NamedIndividual>
+
+
+     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#Patrick">
+            <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Practitioner"/>
+            <name>Patrick</name>
+            <age>30</age>
+            <email>pract@gmail.com</email>
+            <phone>123-456-7890</phone>
+            <password>securePassword123</password>
+            <weight>180</weight>
+            <targetWeight>160</targetWeight>
+            <height>70</height> <!-- Height in inches -->
+            <heartRate>75</heartRate>
+            <activityLevel>moderate</activityLevel>
+            <role>Practitioner</role>
+            <diabetesStatus>none</diabetesStatus>
+        </owl:NamedIndividual>
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#Expert3">
+    <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Expert"/>
+    <name>Expert</name>
+    <age>30</age>
+    <email>exp@gmail.com</email>
+    <phone>123-456-7890</phone>
+    <password>securePassword123</password>
+    <weight>180</weight>
+    <targetWeight>160</targetWeight>
+    <height>70</height> <!-- Height in inches -->
+    <heartRate>75</heartRate>
+    <activityLevel>moderate</activityLevel>
+    <role>Expert</role>
+    <diabetesStatus>none</diabetesStatus>
+    <affectGoal rdf:resource="http://www.semanticweb.org/health-tracker#Goal1"/>
+    <affectGoal rdf:resource="http://www.semanticweb.org/health-tracker#Goal2"/>
+    <!-- Adding plans directly -->
+    <addPlan rdf:resource="http://www.semanticweb.org/health-tracker#DietPlan1"/>
+    <addPlan rdf:resource="http://www.semanticweb.org/health-tracker#DietPlan2"/>
+</owl:NamedIndividual>
+
+
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#Goal1">
+    <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Goal"/>
+    <target>Lose Weight</target>
+    <progress>50%</progress>
+    <startDate>2024-01-01</startDate>
+    <endDate>2024-06-01</endDate>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#Goal2">
+    <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Goal"/>
+    <target>Increase Muscle Mass</target>
+    <progress>30%</progress>
+    <startDate>2024-02-01</startDate>
+    <endDate>2024-07-01</endDate>
+</owl:NamedIndividual>
+<!-- Define the plans as individual objects -->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#DietPlan1">
+    <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#NutritionPlan"/>
+    <dietPlanType>Weight Loss</dietPlanType>
+    <intensity>Moderate</intensity>
+    <startDate>2024-01-01</startDate>
+    <endDate>2024-01-31</endDate>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#DietPlan2">
+    <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#ExercisePlan"/>
+    <dietPlanType>Muscle Gain</dietPlanType>
+    <intensity>High</intensity>
+    <startDate>2024-02-01</startDate>
+    <endDate>2024-02-28</endDate>
+</owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#drSmith">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Practitioner"/>
+        <name>Dr. Smith</name>
+        <specialization>Cardiology</specialization>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#drJones">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Expert"/>
+        <name>Dr. Jones</name>
+        <expertise>Nutrition</expertise>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#adminUser">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Administrator"/>
+        <name>Admin User</name>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#weightLossGoal">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Goal"/>
+        <description>Lose 10 pounds in 3 months</description>
+        <targetDate>2025-01-01</targetDate>
+    </owl:NamedIndividual>
+
+   <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#morningRun">
+       <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#HealthActivity"/>
+       <type>Running</type>
+       <duration>30</duration>
+       <stepsCount>5000</stepsCount>         <!-- Example value -->
+       <caloriesBurned>300</caloriesBurned>  <!-- Example value -->
+   </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#healthRecord1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#HealthRecord"/>
+        <details>Annual check-up, no issues</details>
+        <date>2024-10-01</date>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#fitnessPlan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Plan"/>
+        <description>3-Month Fitness Plan</description>
+        <startDate>2024-11-01</startDate>
+        <endDate>2025-01-31</endDate>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#fallPromotion">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#PromotionCampaign"/>
+        <title>Fall Health Challenge</title>
+        <startDate>2024-10-01</startDate>
+        <endDate>2024-12-31</endDate>
+    </owl:NamedIndividual>
 
 
     <!-- http://www.semanticweb.org/health-tracker#nutritionPlan1 -->
@@ -676,7 +1023,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#VeganPlan"/>
         <dietPlanType>Vegan</dietPlanType>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/health-tracker#runningActivity -->
@@ -687,103 +1034,24 @@
         <exerciseDuration>45</exerciseDuration>
     </owl:NamedIndividual>
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#sarahLee">
-        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#User"/>
-        <age>40</age>
-        <email>sarahlee@example.com</email>
-        <height>165</height>
-        <name>Sarah Lee</name>
-        <phone>1231231234</phone>
-        <weight>68</weight>
-        <heartRate>78</heartRate>
-        <bloodPressure>120/80</bloodPressure>
-        <cholesterol>200</cholesterol>
+
+
+    <!-- http://www.semanticweb.org/health-tracker#sousou -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#sousou">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Person"/>
     </owl:NamedIndividual>
 
 
-    <!-- http://www.semanticweb.org/health-tracker#jamesBrown -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#jamesBrown">
-        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#User"/>
-        <age>55</age>
-        <email>jamesbrown@example.com</email>
-        <height>175</height>
-        <name>James Brown</name>
-        <phone>5556667777</phone>
-        <weight>85</weight>
-        <heartRate>85</heartRate>
-        <bloodPressure>140/90</bloodPressure>
-        <cholesterol>250</cholesterol>
-        <diabetesStatus>Type 2</diabetesStatus>
+    <!-- http://www.semanticweb.org/health-tracker#30DayChallenge -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#30DayChallenge">
+        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#FitnessChallenge"/>
     </owl:NamedIndividual>
-
-
-    <!-- http://www.semanticweb.org/health-tracker#ameliaClark -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#ameliaClark">
-        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#Practitioner"/>
-        <email>ameliac@example.com</email>
-        <name>Amelia Clark</name>
-        <specialty>Cardiologist</specialty>
-        <clinicName>Heart Health Clinic</clinicName>
-        <phone>9998887777</phone>
-    </owl:NamedIndividual>
-
-
-    <!-- http://www.semanticweb.org/health-tracker#michaelNguyen -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#michaelNguyen">
-        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#User"/>
-        <age>30</age>
-        <email>michaelnguyen@example.com</email>
-        <height>180</height>
-        <name>Michael Nguyen</name>
-        <phone>5554443333</phone>
-        <weight>72</weight>
-        <heartRate>65</heartRate>
-        <bloodPressure>115/75</bloodPressure>
-        <stepCount>8000</stepCount>
-    </owl:NamedIndividual>
-
-
-    <!-- http://www.semanticweb.org/health-tracker#oliviaJohnson -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#oliviaJohnson">
-        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#User"/>
-        <age>45</age>
-        <email>oliviajohnson@example.com</email>
-        <height>160</height>
-        <name>Olivia Johnson</name>
-        <phone>2223334444</phone>
-        <weight>70</weight>
-        <heartRate>72</heartRate>
-        <bloodPressure>118/78</bloodPressure>
-        <cholesterol>220</cholesterol>
-        <stepCount>6000</stepCount>
-    </owl:NamedIndividual>
-
-
-    <!-- http://www.semanticweb.org/health-tracker#lucasMartinez -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/health-tracker#lucasMartinez">
-        <rdf:type rdf:resource="http://www.semanticweb.org/health-tracker#User"/>
-        <age>65</age>
-        <email>lucasmartinez@example.com</email>
-        <height>170</height>
-        <name>Lucas Martinez</name>
-        <phone>7778889999</phone>
-        <weight>80</weight>
-        <heartRate>80</heartRate>
-        <bloodPressure>130/85</bloodPressure>
-        <cholesterol>210</cholesterol>
-        <diabetesStatus>Type 1</diabetesStatus>
-    </owl:NamedIndividual>
-
-
-    <!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
-
-
 </rdf:RDF>
 
-<!-- http://www.semanticweb.org/health-tracker#sarahLee -->
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
 

@@ -147,7 +147,7 @@ public class JenaEngine {
      * @param model the Jena model to upload.
      * @param fusekiUrl the Fuseki endpoint URL.
      */
-    private static void uploadToFuseki(Model model, String fusekiUrl) {
+    public static void uploadToFuseki(Model model, String fusekiUrl) {
         try {
             HttpURLConnection conn = (HttpURLConnection) new URL(fusekiUrl).openConnection();
             conn.setDoOutput(true);
